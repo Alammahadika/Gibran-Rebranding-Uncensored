@@ -2,17 +2,17 @@
 ### by [MudaBicara.id](https://www.mudabicara.id/)
 
 **Project Overview**  
-This project is a digital investigation into the public perception of **Gibran Rakabuming Raka’s re-branding efforts**.  
-In recent months, Gibran has adopted a more consistent presence as a YouTube content creator—moving away from his earlier “unique” and somewhat eccentric communication style toward a more formal and serious tone. Content such as *Generasi Muda*, *Demographic Bonus*, and *The Future of Indonesia* clearly reflect this shift.  
+This project examines the digital "re-branding" of **Gibran Rakabuming Raka**, whose political persona has been steadily polished for wider public consumption.  
+Once known for his awkward, sometimes quirky communication style, Gibran now presents himself as a more formal and serious figure on YouTube. Videos such as *Generasi Muda*, *Demographic Bonus*, and *The Future of Indonesia* suggest a deliberate effort to appear statesmanlike—an image not always consistent with his earlier public appearances.  
 
-Public reactions, however, are mixed. While some netizens welcome this transformation as a sign of maturity and focus, others view it as a **political maneuver** rather than an authentic personal change. Supportive voices highlight the **informative and educational value** of the content, whereas critical perspectives argue that the change feels **contrived and image-driven**.  
+Netizen reactions highlight this tension. Supporters frame him as finally “maturing” into a thoughtful leader, while skeptics see the sudden transformation as **manufactured branding** rather than genuine character growth. Many even argue that the videos function less as public education and more as **political advertising in disguise**.  
 
 ---
 
 ## Objectives
-- **Data Collection**: Gather public comments from YouTube videos featuring Gibran’s recent content.  
-- **Analytical Approach**: Apply sentiment analysis, framing analysis, and word network analysis to capture patterns in public reactions.  
-- **Evaluation**: Assess whether the re-branding is perceived as **positive, negative, or politically motivated**.  
+- **Data Collection**: Gather and analyze YouTube comments on Gibran’s recent content.  
+- **Analytical Approach**: Use sentiment, framing, and network analysis to reveal how the public perceives his transformation.  
+- **Evaluation**: Determine whether the re-branding is received as a **positive development, a negative façade, or simply another calculated political maneuver**.  
 
 ## 📥 Data Collection by Scraping
 We collected YouTube comments using the YouTube Data API v3 and googleapiclient.
