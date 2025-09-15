@@ -1,5 +1,5 @@
-# [Gibran-Rebranding-Uncensored](https://www.mudabicara.id/kajian/re-branding-gibran-dari-bagi-bagi-susu-hingga-jadi-youtuber-sorot-wacana/)
-
+# [Gibran-Rebranding-Uncensored](https://www.mudabicara.id/kajian/re-branding-gibran-dari-bagi-bagi-susu-hingga-jadi-youtuber-sorot-wacana/) 
+### by [MudaBicara.id](https://www.mudabicara.id/)
 **Project**: A digital investigation into public perception of Gibran Rakabuming Raka's "re-branding" efforts.
 In recent months, Gibran Rakabuming Raka has appeared more consistent as a content creator on YouTube — abandoning his "unique" and somewhat eccentric communication style and shifting to a more formal and serious approach. Content such as "Generasi Muda," "Demographic Bonus," and "The Future of Indonesia" are clear examples of this change.
 
