@@ -1,13 +1,18 @@
 # [Gibran-Rebranding-Uncensored](https://www.mudabicara.id/kajian/re-branding-gibran-dari-bagi-bagi-susu-hingga-jadi-youtuber-sorot-wacana/) 
 ### by [MudaBicara.id](https://www.mudabicara.id/)
-**Project**: A digital investigation into public perception of Gibran Rakabuming Raka's "re-branding" efforts.
-In recent months, Gibran Rakabuming Raka has appeared more consistent as a content creator on YouTube — abandoning his "unique" and somewhat eccentric communication style and shifting to a more formal and serious approach. Content such as "Generasi Muda," "Demographic Bonus," and "The Future of Indonesia" are clear examples of this change.
 
-Muda Bicara presents an analysis of netizen comments on these content: many support Gibran's efforts to appear more mature and focused, while some suspect this move is more of a political maneuver than a genuine change in character. Some praise the content for being more informative and educational, but many also feel the changes feel contrived, as if an attempt to "appear different" for the sake of image.
+**Project Overview**  
+This project is a digital investigation into the public perception of **Gibran Rakabuming Raka’s re-branding efforts**.  
+In recent months, Gibran has adopted a more consistent presence as a YouTube content creator—moving away from his earlier “unique” and somewhat eccentric communication style toward a more formal and serious tone. Content such as *Generasi Muda*, *Demographic Bonus*, and *The Future of Indonesia* clearly reflect this shift.  
+
+Public reactions, however, are mixed. While some netizens welcome this transformation as a sign of maturity and focus, others view it as a **political maneuver** rather than an authentic personal change. Supportive voices highlight the **informative and educational value** of the content, whereas critical perspectives argue that the change feels **contrived and image-driven**.  
+
+---
+
 ## Objectives
-- Collect public comments from public platforms (YouTube) regarding Gibran's new videos and content.
-- Conduct sentiment, framing, and word network analysis to observe netizen reaction patterns.
-- Assess whether the re-branding received a positive, negative, or was perceived as a political maneuver.
+- **Data Collection**: Gather public comments from YouTube videos featuring Gibran’s recent content.  
+- **Analytical Approach**: Apply sentiment analysis, framing analysis, and word network analysis to capture patterns in public reactions.  
+- **Evaluation**: Assess whether the re-branding is perceived as **positive, negative, or politically motivated**.  
 
 ## 📥 Data Collection by Scraping
 We collected YouTube comments using the YouTube Data API v3 and googleapiclient.
@@ -331,3 +336,19 @@ ggplot(textblobtransformeres2, aes(x = textblob_polarity, y = textblob_subjectiv
 ```
 
 ![](sentiment/visual2.png)
+
+## Sentiment Analysis: Polarity & Subjectivity Scatter Plot
+
+### Interpretation
+- **Polarity (X-axis):** -1 = very negative, +1 = very positive.  
+- **Subjectivity (Y-axis):** 0 = objective/factual, 1 = subjective/opinion.  
+
+**Key findings:**
+1. Most comments fall in the **subjective area (>0.5)**, indicating that discussions are primarily based on personal opinions rather than factual statements.  
+2. Red dots (negative) dominate the **left side** (polarities < 0), while blue dots (positive) cluster more on the **right side** (polarities > 0).  
+3. The overall center of distribution leans toward **neutral–negative polarity with high subjectivity**, suggesting that critical opinions expressed in a subjective tone are common.  
+
+### Overall Insights
+- The discourse is **opinion-driven** rather than fact-based.  
+- **Negative comments** are more diverse and scattered across the polarity spectrum.  
+- **Positive comments**, while fewer, are more concentrated at higher polarities, showing stronger consistency in supportive expressions.  
