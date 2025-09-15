@@ -258,14 +258,12 @@ preds = model.predict(X_test)
 
 print("Akurasi dengan TF-IDF dari komentar:", accuracy_score(y_test, preds))
 
-
 print(classification_report(y_test, preds))
 
 print(df.columns)
-# Ganti nama kolom yang tidak ada dengan nama yang benar
+
 y = df['transformer_label']
 
-# Kode selanjutnya yang sekarang akan berhasil dijalankan
 X_train, X_test, y_train, y_test = train_test_split(X_tfidf, y, stratify=y)
 
 model = LogisticRegression()
@@ -277,7 +275,7 @@ print("Akurasi dengan TF-IDF dari komentar:", accuracy_score(y_test, preds))
 print(classification_report(y_test, preds))
 
 ```
-### Result Data Accurate
+### 📊 Sentiment Classification Result
 ```py
 print(classification_report(y_test, preds))
 Akurasi dengan TF-IDF dari komentar: 0.7755610972568578
@@ -291,3 +289,6 @@ Akurasi dengan TF-IDF dari komentar: 0.7755610972568578
 weighted avg       0.77      0.78      0.76      3609
 
 ```
+A YouTube comment sentiment analysis experiment using TF-IDF plus supervised classification yielded an accuracy of 77.5%.
+The model performed quite well on negative comments (precision 0.79, recall 0.91), while its performance was lower on positive comments (precision 0.74, recall 0.51).
+Evaluation results using classification_report (sklearn) indicate that the model is generally quite reliable for analyzing public discourse related to Gibran's rebranding.
