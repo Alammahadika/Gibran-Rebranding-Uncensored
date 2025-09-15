@@ -87,37 +87,39 @@ for i, comment in enumerate(comments, 1):
 16. Oalah yang hadir banyak kaum RT 16 RW 24, cara berfikir gak pake Logika tapi pake halusinasi👍👍👍
 17. ANAK MUDA BANYAK PRESTASINYA EMANG, LAH LU PRESTASINYA APA KOCAK? BEBAN NEGARA YANG ADA
 ```
-## Cleaning Text Comment
+## 🧹 Cleaning Text Comment
 ```py
 import pandas as pd
 import re 
 import string
 
 def clean_text(text):
-    # 1. Hilangkan karakter khusus dan emoji
+    # 1. Remove special characters and emojis
     text = re.sub(r'[^\w\s]', '', str(text))
-    text = text.encode('ascii', 'ignore').decode('utf-8')  # Hapus emoji
+    text = text.encode('ascii', 'ignore').decode('utf-8')  # remove emojis
     
-    # 2. Ubah ke huruf kecil
+    # 2. Convert to lowercase
     text = text.lower()
     
-    # 3. Hilangkan angka
+    # 3. Remove digits
     text = re.sub(r'\d+', '', text)
     
-    # 4. Hilangkan whitespace berlebih
+    # 4. Remove extra whitespaces
     text = ' '.join(text.split())
     
-    # 5. Hilangkan tanda baca
+    # 5. Remove punctuation
     text = text.translate(str.maketrans('', '', string.punctuation))
     
     return text
 
+# Apply cleaning
 df['Cleaned_Comment'] = df['Comment'].apply(clean_text)
+
 ```
 
-### Result Cleaning Text Comment
+### Result Output
 ```
-# A tibble: 55.988 × 1
+# A tibble: 55,988 × 1
    Comment                                                                          
    <chr>                                                                            
  1 ngemeng doang woiii aksi nya mane apa yg lo siapin untuk tap bonus demografi nya…
@@ -130,8 +132,9 @@ df['Cleaned_Comment'] = df['Comment'].apply(clean_text)
  8 kaku amat pak                                                                    
  9 is it true that you will make indonesia proud in take care of the children in pa…
 10 sadar diri pak tidak cocok jadi wakil presiden                                   
-# ℹ 55.988 more rows
+# ℹ 55,988 more rows
 # ℹ Use `print(n = ...)` to see more rows
+
 ```
 
 ## Comment Result Translate to Engglish 
