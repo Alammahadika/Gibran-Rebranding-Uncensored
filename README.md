@@ -60,7 +60,7 @@ for i, comment in enumerate(comments, 1):
 df.to_excel("comments.xlsx", index=False)
 
 ```
-## Result Comment Scraped
+### Result Comment Scraped
 
 ```py
 for i, comment in enumerate(comments, 1):
@@ -112,7 +112,7 @@ def clean_text(text):
 df['Cleaned_Comment'] = df['Comment'].apply(clean_text)
 ```
 
-## Result Cleaning Text Comment
+### Result Cleaning Text Comment
 ```
 # A tibble: 55.988 × 1
    Comment                                                                          
@@ -165,6 +165,7 @@ print("\nPersentase:")
 print(df['textblob_label'].value_counts(normalize=True).round(2) * 100)
 
 ```
+### Result Sentiment TextBlob
 ```py
 Print(df['textblob_label'].value_counts())
 textblob_label
@@ -181,4 +182,49 @@ NEGATIVE    73.0
 POSITIVE    27.0
 Name: proportion, dtype: float64```
 
+## Analysis Text Transformers
+```py
+from transformers import pipeline
+import pandas as pd
 
+# Inisialisasi model transformer
+transformer_classifier = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+
+# Fungsi klasifikasi sentimen
+def get_transformer_sentiment(text):
+    result = transformer_classifier(text[:512])[0]  # Max token limit
+    return result['label'], result['score']
+
+# Terapkan ke kolom komentar
+transformer_results = df['english_comment'].apply(get_transformer_sentiment)
+
+# Masukkan hasil ke dataframe
+df['transformer_label'] = transformer_results.apply(lambda x: x[0])
+df['transformer_score'] = transformer_results.apply(lambda x: x[1])
+
+# Cek hasil
+print(df[['english_comment', 'transformer_label', 'transformer_score']].head(10))
+
+# Hitung total dan persentase
+total_counts = df['transformer_label'].value_counts()
+percentage_counts = df['transformer_label'].value_counts(normalize=True) * 100
+
+print("\nTotal Hasil Sentimen dari Transformer:")
+print(total_counts)
+
+print("\nPersentase Hasil Sentimen dari Transformer:")
+print(percentage_counts.round(2))
+
+```
+### Result Sentiment Tranformers
+```py
+>>> from transformers import pipeline
+>>> clf = pipeline("sentiment-analysis")
+No model was supplied, defaulted to distilbert-base-uncased-finetuned-sst-2-english and revision af0f99b (https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english).
+Using a pipeline without specifying a model name and revision in production is not recommended.
+/opt/anaconda3/lib/python3.11/site-packages/huggingface_hub/file_download.py:795: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+>>> print(clf("Gibran sekarang lebih serius di YouTube."))
+[{'label': 'NEGATIVE', 'score': 0.8695107102394104}]
+
+```
