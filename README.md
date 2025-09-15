@@ -228,3 +228,64 @@ Using a pipeline without specifying a model name and revision in production is n
 [{'label': 'NEGATIVE', 'score': 0.8695107102394104}]
 
 ```
+## Data Text Accurate 
+```py
+  # Data accurate
+
+# Import data
+import pandas as pd
+
+df = pd.read_excel("/Users/mymac/Desktop/textblobtransformeres2.xlsx")
+
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split  
+from sklearn.linear_model import LogisticRegression  
+from sklearn.metrics import accuracy_score  
+from sklearn.metrics import classification_report
+
+vectorizer = TfidfVectorizer(max_features=1000) # sesuai kebutuah 
+X_tfidf = vectorizer.fit_transform(df['english_comment'])
+
+y = df['textblob_label']
+X_train, X_test, y_train, y_test = train_test_split(X_tfidf, y, stratify=y)
+
+model = LogisticRegression()
+model.fit(X_train, y_train)
+preds = model.predict(X_test)
+
+print("Akurasi dengan TF-IDF dari komentar:", accuracy_score(y_test, preds))
+
+
+print(classification_report(y_test, preds))
+
+print(df.columns)
+# Ganti nama kolom yang tidak ada dengan nama yang benar
+y = df['transformer_label']
+
+# Kode selanjutnya yang sekarang akan berhasil dijalankan
+X_train, X_test, y_train, y_test = train_test_split(X_tfidf, y, stratify=y)
+
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+preds = model.predict(X_test)
+
+print("Akurasi dengan TF-IDF dari komentar:", accuracy_score(y_test, preds))
+print(classification_report(y_test, preds))
+
+```
+### Result Data Accurate
+```py
+print(classification_report(y_test, preds))
+Akurasi dengan TF-IDF dari komentar: 0.7755610972568578
+              precision    recall  f1-score   support
+
+    NEGATIVE       0.79      0.91      0.84      2391
+    POSITIVE       0.74      0.51      0.61      1218
+
+    accuracy                           0.78      3609
+   macro avg       0.76      0.71      0.73      3609
+weighted avg       0.77      0.78      0.76      3609
+
+```
