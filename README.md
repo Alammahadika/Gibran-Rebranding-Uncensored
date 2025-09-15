@@ -142,10 +142,11 @@ Polarity → ranges from -1 (very negative) to +1 (very positive).
 Subjectivity → ranges from 0 (objective) to 1 (subjective).
 
 ### 🔎 Labeling Rules
+```
 <= -0.05 → NEGATIVE
 >= +0.05 → POSITIVE
 Otherwise → NEGATIVE (neutral merged with negative for this dataset).
-
+```
 ``` py
 from textblob import TextBlob
 
