@@ -82,4 +82,51 @@ for i, comment in enumerate(comments, 1):
 14. Buat anak abah, jangan ngaku islam <br>Tapi ushul aqidah n tauhid rusak loe pada <br><br>Emang khawarij loe pada <br><br>Hai orang-orang yang beriman hendaklah kamu jadi orang-orang yang selalu menegakkan (kebenaran) karena Allah, menjadi saksi dengan adil. Dan janganlah sekali-kali kebencianmu terhadap sesuatu kaum, mendorong kamu untuk berlaku tidak adil. Berlaku adillah, karena adil itu lebih dekat kepada takwa. Dan bertakwalah kepada Allah, sesungguhnya Allah Maha Mengetahui apa yang kamu kerjakan.<br><br>« Al-Ma&#39;idah 7 ✵ Al-Ma&#39;idah 9 »
 15. Becik ketitik olo ketoro, kebenaran akan selalu menemukan jalannya
 16. Oalah yang hadir banyak kaum RT 16 RW 24, cara berfikir gak pake Logika tapi pake halusinasi👍👍👍
-17. ANAK MUDA BANYAK PRESTASINYA EMANG, LAH LU PRESTASINYA APA KOCAK? BEBAN NEGARA YANG ADA```
+17. ANAK MUDA BANYAK PRESTASINYA EMANG, LAH LU PRESTASINYA APA KOCAK? BEBAN NEGARA YANG ADA
+```
+## Cleaning Text Comment
+```py
+import pandas as pd
+import re 
+import string
+
+def clean_text(text):
+    # 1. Hilangkan karakter khusus dan emoji
+    text = re.sub(r'[^\w\s]', '', str(text))
+    text = text.encode('ascii', 'ignore').decode('utf-8')  # Hapus emoji
+    
+    # 2. Ubah ke huruf kecil
+    text = text.lower()
+    
+    # 3. Hilangkan angka
+    text = re.sub(r'\d+', '', text)
+    
+    # 4. Hilangkan whitespace berlebih
+    text = ' '.join(text.split())
+    
+    # 5. Hilangkan tanda baca
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    
+    return text
+
+df['Cleaned_Comment'] = df['Comment'].apply(clean_text)
+```
+
+## Result Cleaning Text Comment
+```
+# A tibble: 17,300 × 1
+   Comment                                                                          
+   <chr>                                                                            
+ 1 ngemeng doang woiii aksi nya mane apa yg lo siapin untuk tap bonus demografi nya…
+ 2 ramalan cuaca untuk beberapa bulan kedepanbrarea jakarta pusat dsan sekitarnya b…
+ 3 ok laaah tombol dislike diumpetin jumlahnya jumlah viewers juta per hari ini jum…
+ 4 woy kenapa tombol dislikenya diumpetin jumlahnya                                 
+ 5 pembodohan rakyat produktif apa noh lihat generasi muda narkoba sdh meluas de ko…
+ 6 podcast sama ferryirwandi pak waperss                                            
+ 7 hahahahha lucu mas                                                               
+ 8 kaku amat pak                                                                    
+ 9 is it true that you will make indonesia proud in take care of the children in pa…
+10 sadar diri pak tidak cocok jadi wakil presiden                                   
+# ℹ 17,290 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
