@@ -180,7 +180,9 @@ Persentase:
 textblob_label
 NEGATIVE    73.0
 POSITIVE    27.0
-Name: proportion, dtype: float64```
+Name: proportion, dtype: float64
+
+```
 
 ## Analysis Text Transformers
 ```py
