@@ -184,7 +184,7 @@ Name: proportion, dtype: float64
 
 ```
 
-## Analysis Text Transformers
+## Sentiment Analysis with Transformers
 ```py
 from transformers import pipeline
 import pandas as pd
@@ -220,16 +220,16 @@ print(percentage_counts.round(2))
 ```
 ### Result Sentiment Tranformers
 ```py
->>> from transformers import pipeline
->>> clf = pipeline("sentiment-analysis")
-No model was supplied, defaulted to distilbert-base-uncased-finetuned-sst-2-english and revision af0f99b (https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english).
-Using a pipeline without specifying a model name and revision in production is not recommended.
-/opt/anaconda3/lib/python3.11/site-packages/huggingface_hub/file_download.py:795: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
->>> print(clf("Gibran sekarang lebih serius di YouTube."))
-[{'label': 'NEGATIVE', 'score': 0.8695107102394104}]
-
+from transformers import pipeline
+clf = pipeline("sentiment-analysis")
+print(clf("Gibran sekarang lebih serius di YouTube."))
 ```
+```py
+[{'label': 'NEGATIVE', 'score': 0.8695}]
+```
+The model classified the input sentence as NEGATIVE with a confidence score of 0.87.
+However, since the default model is trained on English data (SST-2), the result may not be fully reliable for Indonesian text. A multilingual or fine-tuned model on Indonesian datasets is recommended for more accurate results
+
 ## Data Text Accurate 
 ```py
   # Data accurate
@@ -289,6 +289,6 @@ Akurasi dengan TF-IDF dari komentar: 0.7755610972568578
 weighted avg       0.77      0.78      0.76      3609
 
 ```
-A YouTube comment sentiment analysis experiment using TF-IDF plus supervised classification yielded an accuracy of 77.5%.
-The model performed quite well on negative comments (precision 0.79, recall 0.91), while its performance was lower on positive comments (precision 0.74, recall 0.51).
-Evaluation results using classification_report (sklearn) indicate that the model is generally quite reliable for analyzing public discourse related to Gibran's rebranding.
+Experiments on YouTube comment sentiment analysis using TF-IDF + supervised classification achieved an accuracy of 77.5%.
+The model performs well in identifying negative comments (precision 0.79, recall 0.91), while its performance on positive comments is comparatively lower (precision 0.74, recall 0.51).
+The evaluation output using classification_report (sklearn) indicates that overall, the model is reasonably reliable for analyzing public discourse regarding Gibran’s re-branding.
