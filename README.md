@@ -130,3 +130,9 @@ df['Cleaned_Comment'] = df['Comment'].apply(clean_text)
 # ℹ 55.988 more rows
 # ℹ Use `print(n = ...)` to see more rows
 ```
+
+## Comment Result Translate to Engglish 
+
+## Data Accurate
+
+
