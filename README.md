@@ -297,3 +297,30 @@ weighted avg       0.77      0.78      0.76      3609
 Experiments on YouTube comment sentiment analysis using TF-IDF + supervised classification achieved an accuracy of 77.5%.
 The model performs well in identifying negative comments (precision 0.79, recall 0.91), while its performance on positive comments is comparatively lower (precision 0.74, recall 0.51).
 The evaluation output using classification_report (sklearn) indicates that overall, the model is reasonably reliable for analyzing public discourse regarding Gibran’s re-branding.
+
+
+## Visual Data 
+
+```r
+library(readxl)
+textblobtransformeres2 <- read_excel("textblobtransformeres2.xlsx")
+View(textblobtransformeres2)
+
+# Sentiment Transformers 
+
+library(ggplot2)
+
+ggplot(textblobtransformeres2, aes(x = transformer_score, fill = transformer_label)) +
+  geom_density(alpha = 0.5, adjust = 6) +
+  scale_fill_manual(values = c("POSITIVE" = "blue", "NEGATIVE" = "red")) +
+  scale_x_continuous(limits = c(0.6, 1.05), expand = c(0.01, 0.02)) +
+  labs(
+    title = "Analisis Sentimen Konten YouTube Gibran Rakabuming",
+    subtitle = "Generasi Muda, Bonus Demografi dan Masa Depan Indonesia",
+    x = "Sentiment Score",
+    y = "Density",
+    fill = "Sentiment"
+  ) +
+  theme_bw()
+
+```
