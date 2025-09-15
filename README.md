@@ -133,6 +133,52 @@ df['Cleaned_Comment'] = df['Comment'].apply(clean_text)
 
 ## Comment Result Translate to Engglish 
 
-## Data Accurate
+## Analysis Text-Blob
+``` py
+from textblob import TextBlob
+
+
+def get_textblob_scores(text):
+    blob = TextBlob(text)
+    return pd.Series([blob.sentiment.polarity, blob.sentiment.subjectivity])
+
+# Terapkan ke kolom komentar
+df[['textblob_polarity', 'textblob_subjectivity']] = df['english_comment'].apply(get_textblob_scores)
+
+# Fungsi untuk memberi label sentimen berdasarkan polarity
+def label_textblob(polarity):
+    if polarity <= -0.05:
+        return 'NEGATIVE'
+    elif polarity >= 0.05:
+        return 'POSITIVE'
+    else:
+        return 'NEGATIVE'  
+
+# Terapkan label sentimen
+df['textblob_label'] = df['textblob_polarity'].apply(label_textblob)
+
+# Tampilkan distribusi dan persentase
+print("Distribusi label TextBlob:")
+print(df['textblob_label'].value_counts())
+
+print("\nPersentase:")
+print(df['textblob_label'].value_counts(normalize=True).round(2) * 100)
+
+```
+```py
+Print(df['textblob_label'].value_counts())
+textblob_label
+NEGATIVE    10493
+POSITIVE     3940
+Name: count, dtype: int64
+>>> 
+>>> print("\nPersentase:")
+
+Persentase:
+>>> print(df['textblob_label'].value_counts(normalize=True).round(2) * 100)
+textblob_label
+NEGATIVE    73.0
+POSITIVE    27.0
+Name: proportion, dtype: float64```
 
 
