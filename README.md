@@ -133,56 +133,54 @@ df['Cleaned_Comment'] = df['Comment'].apply(clean_text)
 
 ## Comment Result Translate to Engglish 
 
-## Analysis Text-Blob
+## 📊 Sentiment Analysis with TextBlob
+
+### 📌 Overview
+We applied TextBlob for sentiment classification on YouTube comments.
+TextBlob generates two key scores:
+Polarity → ranges from -1 (very negative) to +1 (very positive).
+Subjectivity → ranges from 0 (objective) to 1 (subjective).
+
+### 🔎 Labeling Rules
+<= -0.05 → NEGATIVE
+>= +0.05 → POSITIVE
+Otherwise → NEGATIVE (neutral merged with negative for this dataset).
+
 ``` py
 from textblob import TextBlob
-
 
 def get_textblob_scores(text):
     blob = TextBlob(text)
     return pd.Series([blob.sentiment.polarity, blob.sentiment.subjectivity])
 
-# Terapkan ke kolom komentar
+# Apply polarity & subjectivity extraction
 df[['textblob_polarity', 'textblob_subjectivity']] = df['english_comment'].apply(get_textblob_scores)
 
-# Fungsi untuk memberi label sentimen berdasarkan polarity
+# Sentiment labeling
 def label_textblob(polarity):
     if polarity <= -0.05:
         return 'NEGATIVE'
     elif polarity >= 0.05:
         return 'POSITIVE'
     else:
-        return 'NEGATIVE'  
+        return 'NEGATIVE'
 
-# Terapkan label sentimen
 df['textblob_label'] = df['textblob_polarity'].apply(label_textblob)
 
-# Tampilkan distribusi dan persentase
-print("Distribusi label TextBlob:")
-print(df['textblob_label'].value_counts())
-
-print("\nPersentase:")
-print(df['textblob_label'].value_counts(normalize=True).round(2) * 100)
 
 ```
 ### Result Sentiment TextBlob
 ```py
-Print(df['textblob_label'].value_counts())
-textblob_label
 NEGATIVE    10493
 POSITIVE     3940
 Name: count, dtype: int64
->>> 
->>> print("\nPersentase:")
-
-Persentase:
->>> print(df['textblob_label'].value_counts(normalize=True).round(2) * 100)
-textblob_label
-NEGATIVE    73.0
-POSITIVE    27.0
-Name: proportion, dtype: float64
+```
+```
+NEGATIVE    73.0%
+POSITIVE    27.0%
 
 ```
+
 
 ## Sentiment Analysis with Transformers
 ```py
