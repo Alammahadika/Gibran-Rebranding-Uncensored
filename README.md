@@ -114,7 +114,7 @@ df['Cleaned_Comment'] = df['Comment'].apply(clean_text)
 
 ## Result Cleaning Text Comment
 ```
-# A tibble: 17,300 × 1
+# A tibble: 55.988 × 1
    Comment                                                                          
    <chr>                                                                            
  1 ngemeng doang woiii aksi nya mane apa yg lo siapin untuk tap bonus demografi nya…
@@ -127,6 +127,6 @@ df['Cleaned_Comment'] = df['Comment'].apply(clean_text)
  8 kaku amat pak                                                                    
  9 is it true that you will make indonesia proud in take care of the children in pa…
 10 sadar diri pak tidak cocok jadi wakil presiden                                   
-# ℹ 17,290 more rows
+# ℹ 55.988 more rows
 # ℹ Use `print(n = ...)` to see more rows
 ```
