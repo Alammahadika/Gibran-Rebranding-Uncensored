@@ -9,7 +9,10 @@ Muda Bicara presents an analysis of netizen comments on these content: many supp
 - Conduct sentiment, framing, and word network analysis to observe netizen reaction patterns.
 - Assess whether the re-branding received a positive, negative, or was perceived as a political maneuver.
 
-## Data Collection by Scrape
+## 📥 Data Collection by Scraping
+We collected YouTube comments using the YouTube Data API v3 and googleapiclient.
+The script retrieves comments from a specific video, with pagination and an optional limit (max_total).
+
 ```py
 from googleapiclient.discovery import build
 import pandas as pd
