@@ -3,7 +3,7 @@
 
 **Project Overview**  
 This project examines the digital "re-branding" of **Gibran Rakabuming Raka**, whose political persona has been steadily polished for wider public consumption.  
-Once known for his awkward, sometimes quirky communication style, Gibran now presents himself as a more formal and serious figure on YouTube. Videos such as *Generasi Muda*, *Demographic Bonus*, and *The Future of Indonesia* suggest a deliberate effort to appear statesmanlike—an image not always consistent with his earlier public appearances.  
+Once known for his awkward, sometimes quirky communication style, Gibran now presents himself as a more formal and serious figure on YouTube. Videos such as *Generasi Muda*, [Demographic Bonus, and The Future of Indonesia](https://www.youtube.com/watch?v=ldxzVrtqXFg) suggest a deliberate effort to appear statesmanlike—an image not always consistent with his earlier public appearances.  
 
 Netizen reactions highlight this tension. Supporters frame him as finally “maturing” into a thoughtful leader, while skeptics see the sudden transformation as **manufactured branding** rather than genuine character growth. Many even argue that the videos function less as public education and more as **political advertising in disguise**.  
 
